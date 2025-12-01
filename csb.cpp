@@ -14,7 +14,7 @@ void configure()
   if (csb::host_platform == WINDOWS)
     csb::libraries = {"kernel32"};
   else if (csb::host_platform == LINUX)
-    csb::libraries = {"c", "m"};
+    csb::libraries = {"c"};
 }
 
 int clean()
