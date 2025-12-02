@@ -25,6 +25,7 @@ int csb::clean()
 
 int csb::build()
 {
+  csb::generate_compile_commands();
   csb::compile();
   csb::link();
   return CSB_SUCCESS;
