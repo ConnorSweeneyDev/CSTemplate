@@ -1,6 +1,6 @@
 #include "csb.hpp"
 
-void configure()
+void csb::configure()
 {
   csb::target_name = "CSTemplate";
   csb::target_artifact = EXECUTABLE;
@@ -17,20 +17,20 @@ void configure()
     csb::libraries = {"c"};
 }
 
-int clean()
+int csb::clean()
 {
   csb::clean_build_directory();
   return CSB_SUCCESS;
 }
 
-int build()
+int csb::build()
 {
   csb::compile();
   csb::link();
   return CSB_SUCCESS;
 }
 
-int run()
+int csb::run()
 {
   csb::run_target();
   return CSB_SUCCESS;
