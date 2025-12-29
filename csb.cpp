@@ -20,7 +20,7 @@ void csb::configure()
 int csb::clean()
 {
   csb::clean_build();
-  return CSB_SUCCESS;
+  return csb::success;
 }
 
 int csb::build()
@@ -28,13 +28,13 @@ int csb::build()
   csb::generate_compile_commands();
   csb::compile();
   csb::link();
-  return CSB_SUCCESS;
+  return csb::success;
 }
 
 int csb::run()
 {
   csb::run_target();
-  return CSB_SUCCESS;
+  return csb::success;
 }
 
 CSB_MAIN()
