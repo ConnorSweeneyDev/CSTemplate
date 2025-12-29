@@ -19,7 +19,7 @@ void csb::configure()
 
 int csb::clean()
 {
-  csb::clean_build_directory();
+  csb::clean_build();
   return CSB_SUCCESS;
 }
 
