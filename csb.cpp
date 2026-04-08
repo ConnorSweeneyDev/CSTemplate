@@ -25,6 +25,10 @@ int csb::clean()
 
 int csb::build()
 {
+  csb::generate_clangd(
+      {{"CompileFlags", {{"CompilationDatabase", "build/"}}},
+       {"Diagnostics",
+        {{"UnusedIncludes", "Strict"}, {"MissingIncludes", "Strict"}}}});
   csb::generate_compile_commands();
   csb::compile();
   csb::link();
