@@ -25,6 +25,26 @@ int csb::clean()
 
 int csb::build()
 {
+  csb::generate_clang_format({{"BasedOnStyle", "LLVM"},
+                              {"ColumnLimit", "120"},
+                              {"IndentWidth", "2"},
+                              {"ConstructorInitializerIndentWidth", "2"},
+                              {"ContinuationIndentWidth", "2"},
+                              {"Language", "Cpp"},
+                              {"BreakBeforeBraces", "Allman"},
+                              {"AllowShortBlocksOnASingleLine", "true"},
+                              {"AllowShortIfStatementsOnASingleLine", "true"},
+                              {"AllowShortCaseLabelsOnASingleLine", "true"},
+                              {"AllowShortLoopsOnASingleLine", "true"},
+                              {"AllowShortFunctionsOnASingleLine", "true"},
+                              {"AllowShortLambdasOnASingleLine", "true"},
+                              {"AllowShortEnumsOnASingleLine", "true"},
+                              {"AllowShortNamespacesOnASingleLine", "true"},
+                              {"BreakTemplateDeclarations", "No"},
+                              {"IndentPPDirectives", "BeforeHash"},
+                              {"IndentCaseLabels", "true"},
+                              {"NamespaceIndentation", "All"},
+                              {"FixNamespaceComments", "false"}});
   csb::generate_clangd({{"Diagnostics", {{"UnusedIncludes", "Strict"}, {"MissingIncludes", "Strict"}}}});
   csb::generate_compile_commands();
   csb::compile();
