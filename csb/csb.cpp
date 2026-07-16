@@ -25,6 +25,8 @@ int csb::clean()
 
 int csb::build()
 {
+  csb::generate_compile_commands();
+  csb::generate_clangd({{"Diagnostics", {{"UnusedIncludes", "Strict"}, {"MissingIncludes", "Strict"}}}});
   csb::generate_clang_format({{"BasedOnStyle", "LLVM"},
                               {"ColumnLimit", "120"},
                               {"IndentWidth", "2"},
@@ -45,8 +47,6 @@ int csb::build()
                               {"IndentCaseLabels", "true"},
                               {"NamespaceIndentation", "All"},
                               {"FixNamespaceComments", "false"}});
-  csb::generate_clangd({{"Diagnostics", {{"UnusedIncludes", "Strict"}, {"MissingIncludes", "Strict"}}}});
-  csb::generate_compile_commands();
 
   csb::compile();
   csb::link();
